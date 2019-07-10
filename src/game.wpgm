@@ -1,0 +1,38 @@
+import wollok.game.*
+object misil{
+	
+	var property position = game.origin()
+	method destruccion(){
+		game.removeVisual(self)
+		game.removeVisual(alien)
+	}
+}
+object base{
+	var property position = game.origin()
+}
+object alien{
+var  property position = game.center()
+ method image()="ufoo1.png"
+	method mover(){
+	var x = 0.randomUpTo(game.width() -1).truncate(0)
+	var y = 0.randomUpTo(game.height() -1).truncate(0)
+	position = game.at(x,y)
+	}
+}
+
+
+program demo{
+	game.width(25)
+	game.height(10)
+	game.title("Save the Earth")
+	game.boardGround("espacio1.png")
+	game.addVisualCharacter(misil)
+	game.addVisual(alien)
+	game.addVisual(base)
+	game.say(base,"Destrui el Alien y salva a la Tierra !!")
+	
+	//movimiento maquina
+	game.onTick(2000,"alien",{alien.mover()})
+	game.whenCollideDo(alien , {alien => alien.destruccion()} )
+	game.start()
+}
