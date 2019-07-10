@@ -3,7 +3,6 @@ import wollok.game.*
 object misil{
 	var property position = game.origin()
  	var orientacion = derecha
- 	var property posicionChoque
 	
 	method image()= orientacion.imagenDelMisil()
 	
