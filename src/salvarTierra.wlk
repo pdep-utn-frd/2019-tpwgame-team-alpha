@@ -15,7 +15,7 @@ object misil{
 	
     method cambioDeImagen(unaOrientacion) { 
 	  	orientacion = unaOrientacion 
- 		self.image()
+ 		//self.image()
 	}
 }
 
