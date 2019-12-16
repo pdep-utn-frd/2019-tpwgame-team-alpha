@@ -2,22 +2,7 @@ import wollok.game.*
 import salvarTierra.*
 
 program demo{
-	game.width(25)
-	game.height(10)
-	game.title("Save the Earth")
-	game.boardGround("espacio1.png")
-	game.addVisual(base)
-	game.addVisualCharacter(misil)
-	game.addVisual(alien)
-	game.say(base,"Destrui el Alien y salva a la Tierra !!")
+    juego.inicio() 
 	
-	keyboard.up().onPressDo({misil.cambioDeImagen(arriba)})
-	keyboard.down().onPressDo({misil.cambioDeImagen(abajo)})
-	keyboard.left().onPressDo({misil.cambioDeImagen(izquierda)})
-	keyboard.right().onPressDo({misil.cambioDeImagen(derecha)})
-	
-	//movimiento maquina
-	game.onTick(2000,"alien",{alien.mover()})
-	game.whenCollideDo(alien , {alien => alien.destruccion()} )
-	game.start()
+    game.start()
 }
